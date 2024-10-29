@@ -17,5 +17,34 @@ step 4 : Create Internet gateway and NAT gateway  <br>
           - Internet Gateway - Public Route Table <br>
           - NAT Gateway - Private Route Table <br> 
 
-================================================================================================================================
+======================================================================================
 
+# EC2-instance creation : <br>
+1) Jenkins-master-server : <br>
+2) Bastion-host-server : <br>
+3) DEV-A-server : <br>
+4) QA-A-server : <br>
+
+Security groups : <br>
+ - Bastion-host-security-group : <br>
+     - SSH - port 22 - My-IP <br>
+     - HTTP - port 80 - My-IP <br>
+     - custom TCP - port 8080 - My-IP <br>
+
+ - Jenkins-master-security-group : <br>
+     - SSH - Port 22 - My-IP <br>
+     - HTTP - port 80 - My-IP <br>
+     - custom TCP - port 8080 - My-IP <br>
+
+
+- DEV-security-group :  <br>
+      - SSH - port 22 - Bastion-host-security-group <br>
+      - HTTP - port 80 - Bastion-host-security-group <br>
+      - custom TCP - port 8080 - Bastion-host-security-group <br>
+      - custom TCP - port 8080 - My-IP <br>
+
+- QA-security-group : <br> 
+      - SSH - port 22 - Bastion-host-security-group <br>
+      - HTTP - port 80 - Bastion-host-security-group <br>
+      - custom TCP - port 8080 - Bastion-host-security-group <br>
+      - custom TCP - port 8080 - My-IP <br>
